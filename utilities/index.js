@@ -4,7 +4,7 @@ const Util = {}
 /* ************************
  * Constructs the nav HTML unordered list
  ************************** */
-Util.getNav = async function (req, res, next) {
+Util.getNav = async function () {
     let data = await invModel.getClassifications()
     console.log(data)
     let list = "<ul>"
@@ -25,13 +25,10 @@ Util.getNav = async function (req, res, next) {
     return list
 }
 
-module.exports = Util
-
-
 /* **************************************
-* Build the classification view HTML
-* ************************************ */
-Util.buildClassificationGrid = async function (data) {
+ * Build the classification view HTML
+ ************************************ */
+Util.buildClassificationGrid = function (data) {
     let grid
     if (data.length > 0) {
         grid = '<ul id="inv-display">'
@@ -39,7 +36,7 @@ Util.buildClassificationGrid = async function (data) {
             grid += '<li>'
             grid += '<a href="../../inv/detail/' + vehicle.inv_id
                 + '" title="View ' + vehicle.inv_make + ' ' + vehicle.inv_model
-                + 'details"><img src="' + vehicle.inv_thumbnail
+                + ' details"><img src="' + vehicle.inv_thumbnail
                 + '" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model
                 + ' on CSE Motors" /></a>'
             grid += '<div class="namePrice">'
@@ -56,7 +53,57 @@ Util.buildClassificationGrid = async function (data) {
         })
         grid += '</ul>'
     } else {
-        grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+        grid = '<p class="notice">Sorry, no matching vehicles could be found.</p>'
     }
     return grid
 }
+
+/* ************************
+ * Build vehicle details HTML
+ ************************** */
+Util.buildItemListing = async function (data) {
+    let listingHTML = "";
+    console.dir({ data });
+    if (data) {
+      listingHTML = `
+        <section class="car-listing">
+          <img src="${data.inv_image}" alt="${data.inv_make} ${data.inv_model}">
+          <div class="car-information">
+            <div>
+              <h2>${data.inv_year} ${data.inv_make} ${data.inv_model}</h2>
+            </div>
+            <div>
+              ${Number.parseFloat(data.inv_price).toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD",
+              })}
+            </div>
+            <div class="description">
+              <p>
+                ${data.inv_description}
+              </p>
+              <dl>
+                <dt>MILEAGE</dt>
+                <dd>${data.inv_miles.toLocaleString("en-US", {
+                  style: "decimal",
+                })}</dd>
+                <dt>COLOR</dt>
+                <dd>${data.inv_color}</dd>
+                <dt>CLASS</dt>
+                <dd>${data.classification_name}</dd>
+              </dl>
+            </div>
+  
+          </div>
+        </section>
+      `;
+      // listingHTML += '<img src="/images/notexist.jpg">'; // Introduce 404 error
+    } else {
+      listingHTML = `
+        <p>Sorry, no matching vehicles could be found.</p>
+      `;
+    }
+    return listingHTML;
+  };
+
+module.exports = Util
