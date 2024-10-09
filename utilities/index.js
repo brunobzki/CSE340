@@ -73,7 +73,7 @@ Util.buildItemListing = async function (data) {
               <h2>${data.inv_year} ${data.inv_make} ${data.inv_model}</h2>
             </div>
             <div>
-              ${Number.parseFloat(data.inv_price).toLocaleString("en-US", {
+              💸 ${Number.parseFloat(data.inv_price).toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
               })}
