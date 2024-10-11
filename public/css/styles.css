@@ -1,8 +1,8 @@
 :root {
   --primary-fg: rgb(0, 0, 0);
   --primary-bg: rgb(234, 242, 247);
-  --secondary-fg: rgb(236, 229, 209);
-  --secondary-bg: rgb(47, 44, 240);
+  --secondary-fg: rgb(88, 80, 27);
+  --secondary-bg: rgba(199, 195, 170, 0.781);
   --decorative-font: Tahoma, sans-serif;
   --body-font: Verdana, Geneva, , sans-serif;
 }
@@ -27,15 +27,15 @@ header {
 }
 
 nav {
-  color: var(--secondary-fg);
+  
   background-color: var(--secondary-bg);
-  background-image: linear-gradient(90deg, var(--secondary-bg), rgba(255, 255, 255, 0.258), var(--secondary-bg));
+  background-image: linear-gradient(180deg, var(--secondary-bg), rgba(240, 234, 210, 0.281), var(--secondary-bg));
   width: 100%;
   box-shadow: 0 0 20px rgba(87, 75, 75, 0.703);
 }
 #tools{
   align-self: center;
-  background: rgba(138, 137, 137, 0.575);
+  background: rgba(138, 137, 137, 0.199);
   padding: 20px;
   border-radius: 8px;
   
@@ -97,7 +97,7 @@ h4 {
 #wrapper {
   background-color: var(--primary-bg);
   color: var(--primary-fg);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.498);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.616);
 }
 
 .content {
@@ -106,11 +106,11 @@ h4 {
 }
 
 .siteName a {
-  font-family: var(--decorative-font);
-  font-size: 2rem;
+  font-family: "Sixtyfour Convergence";
+  font-size: 50px;
   text-decoration: none;
   color: var(--primary-fg);
-  font-size: 2.5rem;
+  
 }
 
 .no-bullet {
@@ -142,7 +142,7 @@ h4 {
 }
 
 .hero img {
-  width: 80%;
+  width: 100%;
   grid-column: 1/4;
   grid-row: 1/2;
   justify-self: center;
@@ -155,10 +155,10 @@ h4 {
   grid-column: 1/2;
   grid-row: 1/2;
   width: fit-content;
-  background-color: rgba(255, 255, 255, 0.703);
-  color: rgb(15, 206, 212);
+  background-image:  radial-gradient(rgba(226, 223, 223, 0.856), rgba(255, 255, 255, 0.192));
   padding: .5rem;
-  box-shadow: 0 0 20px rgba(0, 102, 255, 0.092);
+  box-shadow: 0 0 20px rgba(0, 102, 255, 0.329);
+  border-radius: 10px;
 }
 
 .hero-text input {
@@ -198,6 +198,7 @@ h4 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.774);
 
 }
 
@@ -235,12 +236,14 @@ ul {
 
 li {
   text-align: center;
-  padding: 5px;
+  padding: 15px;
   margin: 10px;
   text-decoration: none;
-  border-style: solid;
+  background-color: rgba(0, 0, 0, 0.13);
+  box-shadow: 0 0 20px rgba(85, 82, 82, 0.26);
   border-radius: 15px;
 
+  
 }
 
 h2 {
@@ -249,10 +252,12 @@ h2 {
 
 span {
   font-size: 20px;
-  background-color: rgba(138, 137, 137, 0.575);
+  background-color: rgba(138, 137, 137, 0.212);
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
+  background-image:  radial-gradient(rgba(177, 175, 175, 0.425), rgba(10, 10, 10, 0.041));
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.288);
 }
 
 header,
@@ -405,7 +410,7 @@ color: rgb(0, 255, 42);
 }
 
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   body {
     display: flex;
     flex-direction: column;
@@ -413,7 +418,7 @@ color: rgb(0, 255, 42);
     padding: 1rem;
     transition: padding 1s;
   }
-
+  
   #wrapper {
     width: 100%;
     max-width: 700px;
