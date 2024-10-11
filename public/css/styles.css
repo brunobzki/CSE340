@@ -33,6 +33,18 @@ nav {
   width: 100%;
   box-shadow: 0 0 20px rgba(87, 75, 75, 0.703);
 }
+#tools{
+  align-self: center;
+  background: rgba(138, 137, 137, 0.575);
+  padding: 20px;
+  border-radius: 8px;
+  
+}
+#tools:hover{
+  filter: brightness(1.1);
+  transform: scale(1.1);
+  transition: transform .5s;
+}
 
 main {
   display: flex;
@@ -65,12 +77,13 @@ nav ul {
   display: flex;
   flex-direction: row;
   text-decoration: none;
-  justify-content: space-around;
   list-style: none;
+  gap: 15px;
   padding: .5rem 2rem .5rem 2rem;
-  gap: 1rem;
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 h1,
@@ -110,11 +123,13 @@ h4 {
   font-family: Arial, Helvetica, sans-serif;
   color: black;
   display: block;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 
 .hero {
-  padding: 1rem;
+ 
   background-color: white;
   width: 100%;
   position: relative;
@@ -305,6 +320,90 @@ div.error-display h2{
   color: blue;
   margin: 10px
 }
+
+/* Message Style */
+.notice {
+  background-color: rgba(255, 255, 255, 0.436);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  color: red;
+  font-size: 20px;
+  
+}
+/* Login Form Style */
+.input-box {
+  background-color: var(--secondary-bg);
+  color: var(--secondary-fg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 8px;
+  box-shadow: 0 3.2px 8px rgba(0, 0, 0, 0.298);
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 500px;
+  align-self: center;
+}
+
+.input-box label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-box input {
+  padding: 8px;
+  border: none;
+}
+#loginForm > label:nth-child(2) > div{
+  text-align: center;
+  margin: 10px;
+  padding: 5px;
+
+}
+
+#loginForm > label:nth-child(2) > div:hover{
+  transform: scale(1.2);
+  transition: transform .5s;
+}
+#noaccount{
+  background-color:rgba(71, 116, 241, 0.788) ;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.562);
+}
+#noaccount a{
+color: rgb(0, 255, 42);
+}
+#noaccount a:hover{
+  color: rgb(255, 255, 255);
+
+  }
+.input-box input::placeholder {
+  color: rgba(3, 3, 3, 0.27);
+ 
+}
+
+.input-box input:invalid {
+  border-right: 5px solid red;
+}
+
+#submitlogin{
+  font-size: 16px;
+  margin: 10px 0 10px 0;
+  align-self: center;
+  background-color: rgba(71, 116, 241, 0.788);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.562);
+}
+#submitlogin:hover{
+  transform: scale(1.2);
+  transition: transform .5s;
+}
+
 
 @media screen and (min-width: 700px) {
   body {
